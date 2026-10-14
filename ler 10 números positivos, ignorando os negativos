@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+    int num, i;
+    int soma = 0;
+    int quantidade = 0;
+    float media;
+
+    for (i = 1; i <= 10; i++) {
+        printf("Digite o %d numero: ", i);
+        scanf("%d", &num);
+
+        if (num > 0) {
+            soma += num;
+            quantidade++;
+        }
+    }
+
+    if (quantidade > 0) {
+        media = (float)soma / quantidade;
+
+        printf("\nSoma dos numeros positivos: %d\n", soma);
+        printf("Media dos numeros positivos: %.2f\n", media);
+    } else {
+        printf("\nNenhum numero positivo foi digitado.\n");
+    }
+
+    return 0;
+}
