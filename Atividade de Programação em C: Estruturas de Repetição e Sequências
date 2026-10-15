@@ -1,0 +1,95 @@
+#include <stdio.h>
+
+int main() {
+    int opcao;
+
+    do {
+        printf("\n===== MENU DE EXERCICIOS =====\n");
+        printf("1 - Contagem com passo\n");
+        printf("2 - Soma da sequencia\n");
+        printf("3 - Triangulo de Pascal\n");
+        printf("0 - Sair\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+
+            case 1: {
+                int inicio, fim, passo, i;
+
+                printf("Digite o valor inicial: ");
+                scanf("%d", &inicio);
+
+                printf("Digite o valor final: ");
+                scanf("%d", &fim);
+
+                printf("Digite o passo: ");
+                scanf("%d", &passo);
+
+                if (passo <= 0) {
+                    printf("O passo deve ser maior que zero.\n");
+                } else {
+                    for (i = inicio; i <= fim; i += passo) {
+                        printf("%d ", i);
+                    }
+                    printf("\n");
+                }
+                break;
+            }
+
+            case 2: {
+                int n, i;
+                double termo = 1.0, soma = 0.0;
+
+                printf("Digite a quantidade de termos: ");
+                scanf("%d", &n);
+
+                if (n <= 0) {
+                    printf("Digite um numero maior que zero.\n");
+                } else {
+                    for (i = 1; i <= n; i++) {
+                        soma += termo;
+                        termo /= 2.0;
+                    }
+
+                    printf("Soma = %.6f\n", soma);
+                }
+                break;
+            }
+
+            case 3: {
+                int n, i, j;
+                long long valor;
+
+                printf("Digite a quantidade de linhas (1 a 20): ");
+                scanf("%d", &n);
+
+                if (n <= 0 || n > 20) {
+                    printf("Digite um numero de 1 a 20.\n");
+                } else {
+                    for (i = 0; i < n; i++) {
+                        valor = 1;
+
+                        for (j = 0; j <= i; j++) {
+                            printf("%lld ", valor);
+                            valor = valor * (i - j) / (j + 1);
+                        }
+
+                        printf("\n");
+                    }
+                }
+                break;
+            }
+
+            case 0:
+                printf("Programa encerrado.\n");
+                break;
+
+            default:
+                printf("Opcao invalida!\n");
+        }
+
+    } while (opcao != 0);
+
+    return 0;
+}
